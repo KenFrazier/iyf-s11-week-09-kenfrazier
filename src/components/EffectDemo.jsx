@@ -11,6 +11,22 @@ function EffectDemo() {
     console.log('Component mounted!');
   }, []);
 
+  useEffect(() => {
+    console.log('Count changed to:', count);
+    document.title = `Count: ${count}`;
+  }, [count]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log('Tick');
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+      console.log('Cleaned up!');
+    };
+  }, []);
+
   return (
     <div>
       <p>Count: {count}</p>
