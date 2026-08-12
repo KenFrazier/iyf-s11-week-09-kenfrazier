@@ -1,4 +1,4 @@
-import useToggle from '../hooks/useToggle';
+import useToggle from '../../../hooks/useToggle';
 
 function Modal() {
   const [isOpen, { toggle, setFalse }] = useToggle(false);
