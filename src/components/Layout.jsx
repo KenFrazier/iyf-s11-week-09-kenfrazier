@@ -1,15 +1,39 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 
 function Layout() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    console.log('Logging out...');
+    navigate('/');
+  };
+
   return (
     <div className="layout">
       <header>
         <nav>
-          <Link to="/">Home</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) => isActive ? 'active' : ''}
+          >
+            Home
+          </NavLink>
           {' | '}
-          <Link to="/posts">Posts</Link>
+          <NavLink
+            to="/posts"
+            className={({ isActive }) => isActive ? 'active' : ''}
+          >
+            Posts
+          </NavLink>
           {' | '}
-          <Link to="/about">About</Link>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => isActive ? 'active' : ''}
+          >
+            About
+          </NavLink>
+          {' | '}
+          <button onClick={handleLogout}>Logout</button>
         </nav>
       </header>
 

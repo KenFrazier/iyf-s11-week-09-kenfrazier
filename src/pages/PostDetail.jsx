@@ -6,9 +6,12 @@ function PostDetail() {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+    fetch('/issues.json')
       .then(res => res.json())
-      .then(data => setPost(data));
+      .then(data => {
+        const found = data.find(p => p.id === Number(postId));
+        setPost(found);
+      });
   }, [postId]);
 
   if (!post) return <p>Loading...</p>;
