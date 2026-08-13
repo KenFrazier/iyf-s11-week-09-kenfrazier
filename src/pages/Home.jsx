@@ -1,3 +1,4 @@
+import Tabs from '../components/Tabs';
 import UserSearch from '../components/UserSearch';
 import Timer from '../components/Timer';
 import { Card, Button, Modal } from '../components/shared';
@@ -25,6 +26,14 @@ function Home() {
       <Modal />
 
       <UserSearch />
+
+     <Tabs
+      tabs={[
+        { label: "About", content: <p>CommunityHub connects neighbors to solve local issues together.</p> },
+        { label: "How It Works", content: <p>Report an issue, track its status, and see it resolved.</p> },
+        { label: "Contact", content: <p>Reach out to your local elder or administrator.</p> }
+      ]}
+    />
     </div>
   );
 }
