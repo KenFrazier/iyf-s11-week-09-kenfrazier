@@ -1,3 +1,4 @@
+import Timer from '../components/Timer';
 import { Card, Button, Modal } from '../components/shared';
 
 function Home() {
@@ -17,6 +18,7 @@ function Home() {
           Danger
         </Button>
       </Card>
+      <Timer />
       <Modal />
     </div>
   );
