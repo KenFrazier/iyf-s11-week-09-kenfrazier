@@ -1,10 +1,12 @@
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 function Layout() {
+  const { username, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    console.log('Logging out...');
+    logout();
     navigate('/');
   };
 
@@ -33,7 +35,22 @@ function Layout() {
             About
           </NavLink>
           {' | '}
-          <button onClick={handleLogout}>Logout</button>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) => isActive ? 'active' : ''}
+          >
+            Dashboard
+          </NavLink>
+          {' | '}
+          {isAuthenticated ? (
+            <>
+              <span>Hi, {username}</span>
+              {' '}
+              <button onClick={handleLogout}>Logout</button>
+            </>
+          ) : (
+            <NavLink to="/login">Login</NavLink>
+          )}
         </nav>
       </header>
 
