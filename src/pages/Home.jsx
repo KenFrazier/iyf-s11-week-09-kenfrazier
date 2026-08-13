@@ -1,3 +1,4 @@
+import UserSearch from '../components/UserSearch';
 import Timer from '../components/Timer';
 import { Card, Button, Modal } from '../components/shared';
 
@@ -18,11 +19,16 @@ function Home() {
           Danger
         </Button>
       </Card>
+
       <Timer />
+
       <Modal />
+
+      <UserSearch />
     </div>
   );
 }
 
 export default Home;
+
 
