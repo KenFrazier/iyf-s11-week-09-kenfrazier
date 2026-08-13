@@ -7,6 +7,7 @@ import PostDetail from './pages/PostDetail';
 import About from './pages/About';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import UserProfilePage from './pages/UserProfilePage';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="posts/:postId" element={<PostDetail />} />
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
+        <Route path="users/:userId" element={<UserProfilePage />} />
         <Route
           path="dashboard"
           element={
